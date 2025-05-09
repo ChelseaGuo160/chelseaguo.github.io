@@ -1,3 +1,36 @@
 ---
 title: "41625"
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE)
+library(readr)
+library(purrr)
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+library(mosaic)
+library(gmodels)
+library(Sleuth3)
+library(readr)
+library(tidyverse)
+library(tidymodels)
+library(readxl)
+```
+
+```{r message=FALSE}
+election = read_csv("Election.csv")
+head(election)
+```
+
+I will describe my final project here:
+
+
+```{r warning=FALSE, message=FALSE}
+# Create a scatter plot
+ggplot(election, aes(x = female_pct, y = trump16_pct)) +
+geom_point() +
+geom_smooth(method = "lm")
+
+```
+

@@ -208,5 +208,12 @@
     "title": "Lab 9: LASSO",
     "section": "EXERCISE 4: Finalizing our LASSO model",
     "text": "EXERCISE 4: Finalizing our LASSO model\nLet’s finalize our parsimonious LASSO model:\n\nfinal_lasso &lt;- lasso_workflow %&gt;% \n  finalize_workflow(parameters = parsimonious_penalty) %&gt;% \n  fit(data = health_data)\n\nError in finalize_workflow(., parameters = parsimonious_penalty): object 'lasso_workflow' not found\n\nfinal_lasso %&gt;% \n  tidy()\n\nError in tidy(.): object 'final_lasso' not found\n\n\n\nHow many and which predictors were kept in this model?\n\n\nANSWER.\n\n\nThrough shrinkage, the LASSO coefficients(the \\(\\hat\\beta_i\\)) lose some contextual meaning, so we typically shouldn’t interpret them. Why? THINK: What is the goal of LASSO modeling?\n\n\nANSWER."
+  },
+  {
+    "objectID": "41625.html",
+    "href": "41625.html",
+    "title": "41625",
+    "section": "",
+    "text": "election = read_csv(\"Election.csv\")\nhead(election)\n\n# A tibble: 6 × 40\n  state   county   fips trump16 trump16_pct clinton16 clinton16_pct otherpres16\n  &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;\n1 Alabama Autauga  1001   18172        72.8      5936         23.8          865\n2 Alabama Baldwin  1003   72883        76.5     18458         19.4         3874\n3 Alabama Barbour  1005    5454        52.1      4871         46.5          144\n4 Alabama Bibb     1007    6738        76.4      1874         21.2          207\n5 Alabama Blount   1009   22859        89.3      2156          8.43         573\n6 Alabama Bullock  1011    1140        24.2      3530         74.9           40\n# ℹ 32 more variables: otherpres16_pct &lt;dbl&gt;, romney12 &lt;dbl&gt;,\n#   romney12_pct &lt;dbl&gt;, obama12 &lt;dbl&gt;, obama12_pct &lt;dbl&gt;, otherpres12 &lt;dbl&gt;,\n#   otherpres12_pct &lt;dbl&gt;, senaterace16 &lt;chr&gt;, houserace16 &lt;chr&gt;,\n#   govrace16 &lt;chr&gt;, total_population &lt;dbl&gt;, cvap &lt;dbl&gt;,\n#   voterturnout16_pct &lt;dbl&gt;, voterturnout12_pct &lt;dbl&gt;,\n#   voterturnout_pct_diff &lt;dbl&gt;, white_pct &lt;dbl&gt;, nonwhite_pct &lt;dbl&gt;,\n#   black_pct &lt;dbl&gt;, hispanic_pct &lt;dbl&gt;, foreignborn_pct &lt;dbl&gt;, …\n\n\nI will describe my final project here:\n\n# Create a scatter plot\nggplot(election, aes(x = female_pct, y = trump16_pct)) +\ngeom_point() +\ngeom_smooth(method = \"lm\")"
   }
 ]

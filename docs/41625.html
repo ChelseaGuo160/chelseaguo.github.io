@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -136,6 +170,42 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>election <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"Election.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(election)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 40
+  state   county   fips trump16 trump16_pct clinton16 clinton16_pct otherpres16
+  &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+1 Alabama Autauga  1001   18172        72.8      5936         23.8          865
+2 Alabama Baldwin  1003   72883        76.5     18458         19.4         3874
+3 Alabama Barbour  1005    5454        52.1      4871         46.5          144
+4 Alabama Bibb     1007    6738        76.4      1874         21.2          207
+5 Alabama Blount   1009   22859        89.3      2156          8.43         573
+6 Alabama Bullock  1011    1140        24.2      3530         74.9           40
+# ℹ 32 more variables: otherpres16_pct &lt;dbl&gt;, romney12 &lt;dbl&gt;,
+#   romney12_pct &lt;dbl&gt;, obama12 &lt;dbl&gt;, obama12_pct &lt;dbl&gt;, otherpres12 &lt;dbl&gt;,
+#   otherpres12_pct &lt;dbl&gt;, senaterace16 &lt;chr&gt;, houserace16 &lt;chr&gt;,
+#   govrace16 &lt;chr&gt;, total_population &lt;dbl&gt;, cvap &lt;dbl&gt;,
+#   voterturnout16_pct &lt;dbl&gt;, voterturnout12_pct &lt;dbl&gt;,
+#   voterturnout_pct_diff &lt;dbl&gt;, white_pct &lt;dbl&gt;, nonwhite_pct &lt;dbl&gt;,
+#   black_pct &lt;dbl&gt;, hispanic_pct &lt;dbl&gt;, foreignborn_pct &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>I will describe my final project here:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatter plot</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(election, <span class="fu">aes</span>(<span class="at">x =</span> female_pct, <span class="at">y =</span> trump16_pct)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="41625_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 
