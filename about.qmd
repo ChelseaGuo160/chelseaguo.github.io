@@ -6,4 +6,6 @@ Hi I'm Chelsea, I'm a senior in MHC.
 
 ![](6.10.JPG){width="400"}
 
+Here's the link to my page
+
 <https://quarto.org/docs/websites>
