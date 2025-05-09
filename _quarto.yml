@@ -10,7 +10,7 @@ website:
         text: Home
       - about.qmd
       - href: 41625.qmd
-        text: page1
+        text: Final project
 
 format:
   html:
