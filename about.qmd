@@ -2,5 +2,6 @@
 title: "About"
 ---
 
-
 Hi I'm Chelsea, I'm a senior in MHC.
+
+![](6.10.JPG){width="400"}
