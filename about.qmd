@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-Hi I'm Chelsea, I'm a senior in MHC.
+Hi I'm Chelsea, I'm a senior in MHC. I'm interested in Computational Statistics!
 
 ![](6.10.JPG){width="400"}
 
